@@ -1,0 +1,16 @@
+C:\Users\Malte\Documents\GitHub\Prog2SlutUpg\Tap2Kill\Tap2Kill\bin\Debug\Tap2Kill.exe.config
+C:\Users\Malte\Documents\GitHub\Prog2SlutUpg\Tap2Kill\Tap2Kill\bin\Debug\Tap2Kill.exe
+C:\Users\Malte\Documents\GitHub\Prog2SlutUpg\Tap2Kill\Tap2Kill\bin\Debug\Tap2Kill.pdb
+C:\Users\Malte\Documents\GitHub\Prog2SlutUpg\Tap2Kill\Tap2Kill\obj\Debug\Tap2Kill.csprojAssemblyReference.cache
+C:\Users\Malte\Documents\GitHub\Prog2SlutUpg\Tap2Kill\Tap2Kill\obj\Debug\MainWindow.g.cs
+C:\Users\Malte\Documents\GitHub\Prog2SlutUpg\Tap2Kill\Tap2Kill\obj\Debug\App.g.cs
+C:\Users\Malte\Documents\GitHub\Prog2SlutUpg\Tap2Kill\Tap2Kill\obj\Debug\Tap2Kill_Content.g.cs
+C:\Users\Malte\Documents\GitHub\Prog2SlutUpg\Tap2Kill\Tap2Kill\obj\Debug\Tap2Kill_MarkupCompile.cache
+C:\Users\Malte\Documents\GitHub\Prog2SlutUpg\Tap2Kill\Tap2Kill\obj\Debug\Tap2Kill_MarkupCompile.lref
+C:\Users\Malte\Documents\GitHub\Prog2SlutUpg\Tap2Kill\Tap2Kill\obj\Debug\MainWindow.baml
+C:\Users\Malte\Documents\GitHub\Prog2SlutUpg\Tap2Kill\Tap2Kill\obj\Debug\Tap2Kill.g.resources
+C:\Users\Malte\Documents\GitHub\Prog2SlutUpg\Tap2Kill\Tap2Kill\obj\Debug\Tap2Kill.Properties.Resources.resources
+C:\Users\Malte\Documents\GitHub\Prog2SlutUpg\Tap2Kill\Tap2Kill\obj\Debug\Tap2Kill.csproj.GenerateResource.cache
+C:\Users\Malte\Documents\GitHub\Prog2SlutUpg\Tap2Kill\Tap2Kill\obj\Debug\Tap2Kill.csproj.CoreCompileInputs.cache
+C:\Users\Malte\Documents\GitHub\Prog2SlutUpg\Tap2Kill\Tap2Kill\obj\Debug\Tap2Kill.exe
+C:\Users\Malte\Documents\GitHub\Prog2SlutUpg\Tap2Kill\Tap2Kill\obj\Debug\Tap2Kill.pdb

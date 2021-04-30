@@ -1,0 +1,18 @@
+﻿<Window x:Class="Tap2Kill.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tap2Kill"
+        mc:Ignorable="d"
+        Title="GameWindow" Height="600" Width="400" ResizeMode="CanMinimize"  >
+
+    <Canvas Name="MyCanvas" Focusable="True" MouseLeftButtonDown="AtkEnemy" Background="White">
+
+        <Button Panel.ZIndex="1" Visibility="Collapsed" Click="RBtnClick" Name="RestartBtn" Content="Restart" FontSize="24" FontWeight="ExtraBold" Canvas.Left="150" Canvas.Top="250" Background="White" BorderBrush="Black"/>
+        <Button Panel.ZIndex="1" Visibility="Visible" Click="SBtnClick" Name="StartBtn" Content="Start" FontSize="24" FontWeight="ExtraBold" Canvas.Left="165" Canvas.Top="250" Background="White" BorderBrush="Black"/>
+        <Label Panel.ZIndex="1" FontSize="24" Name="ScoreTxt" Content="Score: 0" FontWeight="ExtraBold" Canvas.Left="150" Canvas.Top="10" />
+        <Label Panel.ZIndex="1" FontSize="24" Name="HpTxt" Content="Hp: 10" FontWeight="ExtraBold" Canvas.Left="20" Canvas.Top="10"/>
+
+    </Canvas>
+</Window>
