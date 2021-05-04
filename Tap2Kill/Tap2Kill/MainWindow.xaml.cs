@@ -182,7 +182,18 @@ namespace Tap2Kill
                     MyCanvas.Children.Remove(activeRec);
 
                     score += 1;
-                    speed = speed + 0.05;
+
+                    if (score >= 50)
+                    {
+                        speed = speed + 0.1;
+                    }
+                    else
+                    {
+                        speed = speed + 0.05;
+                    }
+
+                    
+                    Console.WriteLine(speed);
 
                 }
 
