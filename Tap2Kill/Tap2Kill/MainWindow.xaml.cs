@@ -30,6 +30,7 @@ namespace Tap2Kill
         Random rand = new Random();
 
         List<Rectangle> itemRemover = new List<Rectangle>();
+        
 
         ImageBrush BgImage = new ImageBrush();
 
@@ -76,7 +77,7 @@ namespace Tap2Kill
                 {
                     SpiderSkin = 1;
                 }
-                switch (SpiderSkin)//väljer villken fär på spindel som spawnas Just nu finns bara 1 kommer komma mer
+                switch (SpiderSkin)//väljer villken färg på spindel som spawnas Just nu finns bara 1 kommer komma mer
                 {
                     case 1:
                         SpiderImg.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Sprites/SexySpiderRotated.png"));
