@@ -96,7 +96,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Sprites\SexySpiderRotated.png" />
-    <Resource Include="Sprites\SexySpider.png" />
     <Resource Include="Sprites\Bg400x800.png" />
     <Resource Include="Sprites\BackgroundFloor.png" />
     <Content Include="Sprites\Hit.mp3" />
