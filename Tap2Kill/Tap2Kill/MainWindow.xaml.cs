@@ -36,8 +36,6 @@ namespace Tap2Kill
 
         int SpiderSkin = 0;
         int i;
-
-        int SpidersMissed;
         int Hp = 10;
 
         bool gameActive;
@@ -80,19 +78,19 @@ namespace Tap2Kill
                 switch (SpiderSkin)//väljer villken färg på spindel som spawnas Just nu finns bara 1 kommer komma mer
                 {
                     case 1:
-                        SpiderImg.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Sprites/SexySpiderRotated.png"));
+                        SpiderImg.ImageSource = new BitmapImage(new Uri("../../Sprites/SexySpiderRotated.png"));
                         break;
                     case 2:
-                        SpiderImg.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Sprites/SexySpiderRotated.png"));
+                        SpiderImg.ImageSource = new BitmapImage(new Uri("../../Sprites/SexySpiderRotated.png"));
                         break;
                     case 3:
-                        SpiderImg.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Sprites/SexySpiderRotated.png"));
+                        SpiderImg.ImageSource = new BitmapImage(new Uri("../../Sprites/SexySpiderRotated.png"));
                         break;
                     case 4:
-                        SpiderImg.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Sprites/SexySpiderRotated.png"));
+                        SpiderImg.ImageSource = new BitmapImage(new Uri("../../Sprites/SexySpiderRotated.png"));
                         break;
                     case 5:
-                        SpiderImg.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Sprites/SexySpiderRotated.png"));
+                        SpiderImg.ImageSource = new BitmapImage(new Uri("../../Sprites/SexySpiderRotated.png"));
                         break;
                 }
 
@@ -129,7 +127,7 @@ namespace Tap2Kill
                 {
                     itemRemover.Add(x);
                     Hp -= 1;
-                    SpidersMissed += 1;
+                  
                 }
 
             }
@@ -139,7 +137,7 @@ namespace Tap2Kill
                 MyCanvas.Children.Remove(y);
             }
 
-            if (SpidersMissed >= 10)
+            if (Hp <= 0)
             {
                 gameActive = false;
                 GameTimer.Stop();
@@ -156,6 +154,12 @@ namespace Tap2Kill
 
 
         void RBtnClick(object sender, RoutedEventArgs e)
+        {
+            Restart();
+
+        }
+
+        void QBtnClick(object sender, RoutedEventArgs e)
         {
             Restart();
 
@@ -204,7 +208,7 @@ namespace Tap2Kill
         private void GameStart()
         {
             GameTimer.Start();
-            SpidersMissed = 0;
+           
             score = 0;
             intervals = 90;
             gameActive = true;
@@ -212,6 +216,7 @@ namespace Tap2Kill
             speed = 2;
             RestartBtn.Visibility = Visibility.Collapsed;
             StartBtn.Visibility = Visibility.Collapsed;
+            QuitBtn.Visibility = Visibility.Collapsed;
         }
 
         private void Restart()

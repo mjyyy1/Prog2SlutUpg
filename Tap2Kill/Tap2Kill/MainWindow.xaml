@@ -9,8 +9,9 @@
 
     <Canvas Name="MyCanvas" Focusable="True" MouseLeftButtonDown="AtkEnemy" Background="White">
 
-        <Button Panel.ZIndex="1" Visibility="Collapsed" Click="RBtnClick" Name="RestartBtn" Content="Restart" FontSize="24" FontWeight="ExtraBold" Canvas.Left="150" Canvas.Top="250" Background="White" BorderBrush="Black"/>
-        <Button Panel.ZIndex="1" Visibility="Visible" Click="SBtnClick" Name="StartBtn" Content="Start" FontSize="24" FontWeight="ExtraBold" Canvas.Left="165" Canvas.Top="250" Background="White" BorderBrush="Black"/>
+        <Button Panel.ZIndex="1" Visibility="Collapsed" Click="RBtnClick" Name="RestartBtn" Content="Restart" FontSize="24" FontWeight="ExtraBold" Canvas.Left="155" Canvas.Top="250" Background="White" BorderBrush="Black" Width="100"/>
+        <Button Panel.ZIndex="1" Visibility="Visible" Click="Quit" Name="QuitBtn" Content="Quit" FontSize="24" FontWeight="ExtraBold" Canvas.Left="155" Canvas.Top="300" Background="White" BorderBrush="Black" Width="100"/>
+        <Button Panel.ZIndex="1" Visibility="Visible" Click="SBtnClick" Name="StartBtn" Content="Start" FontSize="24" FontWeight="ExtraBold" Canvas.Left="155" Canvas.Top="250" Background="White" BorderBrush="Black" Width="100"/>
         <Label Panel.ZIndex="1" FontSize="24" Name="ScoreTxt" Content="Score: 0" FontWeight="ExtraBold" Canvas.Left="150" Canvas.Top="10" />
         <Label Panel.ZIndex="1" FontSize="24" Name="HpTxt" Content="Hp: 10" FontWeight="ExtraBold" Canvas.Left="20" Canvas.Top="10"/>
 
