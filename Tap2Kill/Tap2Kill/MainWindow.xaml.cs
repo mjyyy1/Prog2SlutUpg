@@ -23,7 +23,7 @@ namespace Tap2Kill
     public partial class MainWindow : Window
     {
 
-        DispatcherTimer GameTimer = new DispatcherTimer();
+        DispatcherTimer GameTimer = new DispatcherTimer();//en timer som används för 
 
         double speed;
         int intervals;
@@ -59,6 +59,8 @@ namespace Tap2Kill
         }
 
         private void GameEngine(object sender, EventArgs e)
+
+
         {
             ScoreTxt.Content = "Score: " + score;
            
@@ -71,29 +73,25 @@ namespace Tap2Kill
 
                 SpiderSkin += 1;
 
-                if (SpiderSkin > 5 )
+                if (SpiderSkin > 3 )
                 {
+                    
                     SpiderSkin = 1;
                 }
+
                 switch (SpiderSkin)//väljer villken färg på spindel som spawnas Just nu finns bara 1 kommer komma mer
                 {
                     case 1:
                         SpiderImg.ImageSource = new BitmapImage(new Uri("../../Sprites/SexySpiderRotated.png"));
                         break;
                     case 2:
-                        SpiderImg.ImageSource = new BitmapImage(new Uri("../../Sprites/SexySpiderRotated.png"));
+                        SpiderImg.ImageSource = new BitmapImage(new Uri("../../Sprites/BlueSPider.png"));
                         break;
                     case 3:
-                        SpiderImg.ImageSource = new BitmapImage(new Uri("../../Sprites/SexySpiderRotated.png"));
+                        SpiderImg.ImageSource = new BitmapImage(new Uri("../../Sprites/NinjaSpooder.png"));
                         break;
-                    case 4:
-                        SpiderImg.ImageSource = new BitmapImage(new Uri("../../Sprites/SexySpiderRotated.png"));
-                        break;
-                    case 5:
-                        SpiderImg.ImageSource = new BitmapImage(new Uri("../../Sprites/SexySpiderRotated.png"));
-                        break;
-                }
 
+                }
 
                 Rectangle newSpider = new Rectangle
                 {
