@@ -23,9 +23,9 @@ namespace Tap2Kill
     public partial class MainWindow : Window
     {
 
-        DispatcherTimer GameTimer = new DispatcherTimer();//en timer som används för 
+        DispatcherTimer GameTimer = new DispatcherTimer();
 
-        double speed;
+        double speed;//Variable för hastigheten på spindlarna
         int intervals;
         Random rand = new Random();
 
@@ -48,11 +48,11 @@ namespace Tap2Kill
 
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent();//skapar bakgrunden
 
             GameTimer.Tick += GameEngine;
             GameTimer.Interval = TimeSpan.FromMilliseconds(20);
-            BgImage.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Sprites/Bg400x800.png"));
+            BgImage.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Sprites/Bg400x800.png"));//refererar till bakgrunden
             MyCanvas.Background = BgImage;
 
             
@@ -62,7 +62,7 @@ namespace Tap2Kill
 
 
         {
-            ScoreTxt.Content = "Score: " + score;
+            ScoreTxt.Content = "Score: " + score;//visar poängen
            
 
             intervals -= 10;
@@ -73,7 +73,7 @@ namespace Tap2Kill
 
                 SpiderSkin += 1;
 
-                if (SpiderSkin > 3 )
+                if (SpiderSkin > 3)
                 {
                     
                     SpiderSkin = 1;
@@ -81,19 +81,26 @@ namespace Tap2Kill
 
                 switch (SpiderSkin)//väljer villken färg på spindel som spawnas Just nu finns bara 1 kommer komma mer
                 {
+                    
+
                     case 1:
-                        SpiderImg.ImageSource = new BitmapImage(new Uri("../../Sprites/SexySpiderRotated.png"));
+                        SpiderImg.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Sprites/SexySpiderRotated.png"));
                         break;
                     case 2:
-                        SpiderImg.ImageSource = new BitmapImage(new Uri("../../Sprites/BlueSPider.png"));
+                        SpiderImg.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Sprites/BlueSpider2.png"));
                         break;
                     case 3:
-                        SpiderImg.ImageSource = new BitmapImage(new Uri("../../Sprites/NinjaSpooder.png"));
+                        SpiderImg.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Sprites/NinjaSpooder2.png"));
                         break;
+
+                    default:
+                        SpiderImg.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Sprites/SexySpiderRotated.png"));   
+                        break;
+
 
                 }
 
-                Rectangle newSpider = new Rectangle
+                Rectangle newSpider = new Rectangle// skapar en rektangle för med en bild på en spindel
                 {
                     Tag = "Spider",
                     Height = 47,
@@ -145,31 +152,31 @@ namespace Tap2Kill
 
             
 
-            HpTxt.Content = "Hp: " + Hp;
+            HpTxt.Content = "Hp: " + Hp;//skriver ut hur många liv man har kvar
 
         }
 
 
 
-        void RBtnClick(object sender, RoutedEventArgs e)
+        void RBtnClick(object sender, RoutedEventArgs e)//kallar på Restart metoden när man trycker på Restart Knappen
         {
             Restart();
 
         }
-
-        void QBtnClick(object sender, RoutedEventArgs e)
+        void QBtnClick(object sender, RoutedEventArgs e)//kallar på Quit metoden när man trycker på Quit Knappen
         {
-            Restart();
-
+            Quit();
         }
-        void SBtnClick(object sender, RoutedEventArgs e)
+
+        
+        void SBtnClick(object sender, RoutedEventArgs e)//kallar på GameStart metoden när man trycker på Start Knappen
         {
             GameStart();
 
         }
 
 
-        private void AtkEnemy(object sender, MouseButtonEventArgs e)
+        private void AtkEnemy(object sender, MouseButtonEventArgs e)//den här spelar ett ljud och tar bort den aktiva rektrangeln
         {
             if (gameActive)
             {
@@ -178,11 +185,11 @@ namespace Tap2Kill
                 {
                     Rectangle activeRec = (Rectangle)e.OriginalSource;
 
-                    player.Open(new Uri("../../Sprites/Hit.mp3", UriKind.RelativeOrAbsolute));
+                    player.Open(new Uri("../../Sprites/Hit.mp3", UriKind.RelativeOrAbsolute));//refererar till ljud filen
                     player.Volume = 0.1;
-                    player.Play();
+                    player.Play();//spelar judfilen
 
-                    MyCanvas.Children.Remove(activeRec);
+                    MyCanvas.Children.Remove(activeRec);//tar bort den activa rektangeln
 
                     score += 1;
 
@@ -195,15 +202,14 @@ namespace Tap2Kill
                         speed = speed + 0.05;
                     }
 
-                    
-                    Console.WriteLine(speed);
+                   
 
                 }
 
             }
         }
 
-        private void GameStart()
+        private void GameStart()//kör spelet
         {
             GameTimer.Start();
            
@@ -217,7 +223,7 @@ namespace Tap2Kill
             QuitBtn.Visibility = Visibility.Collapsed;
         }
 
-        private void Restart()
+        private void Restart()//startar om spelet
         {
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {
@@ -234,6 +240,10 @@ namespace Tap2Kill
 
 
 
+        }
+        private void Quit()//stänger av applikationen 
+        {
+            System.Windows.Application.Current.Shutdown();
         }
     }
 }
