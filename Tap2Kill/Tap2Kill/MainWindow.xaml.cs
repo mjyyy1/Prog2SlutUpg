@@ -100,7 +100,7 @@ namespace Tap2Kill
 
                 }
 
-                Rectangle newSpider = new Rectangle// skapar en rektangle för med en bild på en spindel
+                Rectangle newSpider = new Rectangle// skapar en rektangle med en bild på en spindel
                 {
                     Tag = "Spider",
                     Height = 47,
@@ -108,12 +108,12 @@ namespace Tap2Kill
                     Fill = SpiderImg
                 };
 
-                Canvas.SetLeft(newSpider, rand.Next(50, 350));
-                Canvas.SetTop(newSpider, 600);
+                Canvas.SetLeft(newSpider, rand.Next(50, 350));//sätter ett random x värde för spindelns spawn position
+                Canvas.SetTop(newSpider, 600);//sätter y värdet för spawn positionen
 
-                MyCanvas.Children.Add(newSpider);
+                MyCanvas.Children.Add(newSpider);//visar spindel på canvasen
 
-                intervals = rand.Next(90, 150);
+                intervals = rand.Next(90, 150);//en intervall tills nästa spindel ska spawnas
             }
 
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
@@ -128,7 +128,7 @@ namespace Tap2Kill
                     Canvas.SetLeft(x, Canvas.GetLeft(x) - (i * -1));
 
                 }
-                if (Canvas.GetTop(x) <10)
+                if (Canvas.GetTop(x) <10)//lägger till spindeln för att ta bort den när den når toppen och tar bort 1 hp
                 {
                     itemRemover.Add(x);
                     Hp -= 1;
@@ -137,16 +137,14 @@ namespace Tap2Kill
 
             }
 
-            foreach (Rectangle y in itemRemover)
-            {
-                MyCanvas.Children.Remove(y);
-            }
+            Remover();//kallar på metoden Remover() som tarbort spindlarna
 
-            if (Hp <= 0)
+            if (Hp <= 0)//när hp går under 0 så avslutas spelet och restart knappen visas
             {
                 gameActive = false;
                 GameTimer.Stop();
-                RestartBtn.Visibility = Visibility.Visible;
+                RestartBtn.Visibility = Visibility.Visible;//gör så att knapparna visas
+                QuitBtn.Visibility = Visibility.Visible;
                               
             }
 
@@ -178,26 +176,26 @@ namespace Tap2Kill
 
         private void AtkEnemy(object sender, MouseButtonEventArgs e)//den här spelar ett ljud och tar bort den aktiva rektrangeln
         {
-            if (gameActive)
+            if (gameActive)//körs bara om gameActive är true
             {
 
-                if (e.OriginalSource is Rectangle)
+                if (e.OriginalSource is Rectangle)//kollar om det man trycker på är en Rectangle
                 {
                     Rectangle activeRec = (Rectangle)e.OriginalSource;
 
                     player.Open(new Uri("../../Sprites/Hit.mp3", UriKind.RelativeOrAbsolute));//refererar till ljud filen
                     player.Volume = 0.1;
-                    player.Play();//spelar judfilen
+                    player.Play();//spelar ljudfilen
 
-                    MyCanvas.Children.Remove(activeRec);//tar bort den activa rektangeln
+                    MyCanvas.Children.Remove(activeRec);//tar bort den spindeln man tryckt på
 
                     score += 1;
 
-                    if (score >= 50)
+                    if (score >= 50)// här ökar hastigheten som spindlarna rör sig efter att score är 50
                     {
                         speed = speed + 0.1;
                     }
-                    else
+                    else// här ökar hastigheten innan score är 50
                     {
                         speed = speed + 0.05;
                     }
@@ -209,7 +207,7 @@ namespace Tap2Kill
             }
         }
 
-        private void GameStart()//kör spelet
+        private void GameStart()//startar spelet och resettar alla värden till sina normala värden
         {
             GameTimer.Start();
            
@@ -218,28 +216,34 @@ namespace Tap2Kill
             gameActive = true;
             Hp = 10;
             speed = 2;
-            RestartBtn.Visibility = Visibility.Collapsed;
+            RestartBtn.Visibility = Visibility.Collapsed;//gör så att knapparna inte syns
             StartBtn.Visibility = Visibility.Collapsed;
             QuitBtn.Visibility = Visibility.Collapsed;
         }
 
         private void Restart()//startar om spelet
         {
-            foreach (var x in MyCanvas.Children.OfType<Rectangle>())
+            foreach (var x in MyCanvas.Children.OfType<Rectangle>())//lägger in alla spindlar som är på skärmen i en lista
             {
                 itemRemover.Add(x);
             }
 
-            foreach (Rectangle y in itemRemover)
-            {
-                MyCanvas.Children.Remove(y);
-            }
+            Remover();//kallar på metoden Remover() som tarbort spindlarna
+
             itemRemover.Clear();
 
             GameStart();
 
 
 
+        }
+         
+        private void Remover()
+        {
+            foreach (Rectangle y in itemRemover)//här går man igenom listan med spindlar och tarbort dem
+            {
+                MyCanvas.Children.Remove(y);
+            }
         }
         private void Quit()//stänger av applikationen 
         {
